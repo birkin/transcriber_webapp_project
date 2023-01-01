@@ -22,10 +22,10 @@ This template creates a project (with a single app) that can easily be run by [r
         - push to GitHub
     - make sublime/vs_code project
     - update names
-        - change all `django_template_project` references to name of project
-        - change all `app_x` references to actual name of app
-        - include in above app_x directory
-        - change all `DJANGO_TEMPLATE__` settings references to name of project-settings prefix
+        - change all `transcriber_webapp_project` references to name of project
+        - change all `transcriber_webapp_app` references to actual name of app
+        - include in above transcriber_webapp_app directory
+        - change all `TRNSCRBR_WEBAPP__` settings references to name of project-settings prefix
     - make env
 
             /path/to/python3 -m venv /path/to/project_x_stuff/env_x
