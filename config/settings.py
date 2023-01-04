@@ -22,14 +22,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['DJ_TMPLT32__SECRET_KEY']
+SECRET_KEY = os.environ['TRNSCRBR_WEBAPP__SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = json.loads( os.environ['DJ_TMPLT32__DEBUG_JSON'] )
+DEBUG = json.loads( os.environ['TRNSCRBR_WEBAPP__DEBUG_JSON'] )
 
-ADMINS = json.loads( os.environ['DJ_TMPLT32__ADMINS_JSON'] )
+ADMINS = json.loads( os.environ['TRNSCRBR_WEBAPP__ADMINS_JSON'] )
 
-ALLOWED_HOSTS = json.loads( os.environ['DJ_TMPLT32__ALLOWED_HOSTS_JSON'] )  # list
+ALLOWED_HOSTS = json.loads( os.environ['TRNSCRBR_WEBAPP__ALLOWED_HOSTS_JSON'] )  # list
 
 
 # Application definition
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'x_app'
+    'transcriber_webapp_app'
 ]
 
 MIDDLEWARE = [
@@ -74,7 +74,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-DATABASES = json.loads( os.environ['DJ_TMPLT32__DATABASES_JSON'] )
+DATABASES = json.loads( os.environ['TRNSCRBR_WEBAPP__DATABASES_JSON'] )
 
 
 # Password validation
@@ -115,14 +115,14 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = os.environ['DJ_TMPLT32__STATIC_URL']
-STATIC_ROOT = os.environ['DJ_TMPLT32__STATIC_ROOT']
+STATIC_URL = os.environ['TRNSCRBR_WEBAPP__STATIC_URL']
+STATIC_ROOT = os.environ['TRNSCRBR_WEBAPP__STATIC_ROOT']
 
 
 # Email
-SERVER_EMAIL = os.environ['DJ_TMPLT32__SERVER_EMAIL']
-EMAIL_HOST = os.environ['DJ_TMPLT32__EMAIL_HOST']
-EMAIL_PORT = int( os.environ['DJ_TMPLT32__EMAIL_PORT'] )
+SERVER_EMAIL = os.environ['TRNSCRBR_WEBAPP__SERVER_EMAIL']
+EMAIL_HOST = os.environ['TRNSCRBR_WEBAPP__EMAIL_HOST']
+EMAIL_PORT = int( os.environ['TRNSCRBR_WEBAPP__EMAIL_PORT'] )
 
 
 # Default primary key field type
@@ -149,7 +149,7 @@ LOGGING = {
         'logfile': {
             'level':'DEBUG',
             'class':'logging.FileHandler',  # note: configure server to use system's log-rotate to avoid permissions issues
-            'filename': os.environ['DJ_TMPLT32__LOG_PATH'],
+            'filename': os.environ['TRNSCRBR_WEBAPP__LOG_PATH'],
             'formatter': 'standard',
         },
         'console':{
@@ -164,9 +164,9 @@ LOGGING = {
             'level': 'ERROR',
             'propagate': False,
         },
-        'x_app': {
+        'transcriber_webapp_app': {
             'handlers': ['logfile'],
-            'level': os.environ['DJ_TMPLT32__LOG_LEVEL'],
+            'level': os.environ['TRNSCRBR_WEBAPP__LOG_LEVEL'],
             'propagate': False
         },
         # 'django.db.backends': {  # re-enable to check sql-queries! <https://docs.djangoproject.com/en/3.2/topics/logging/#django-db-backends>
