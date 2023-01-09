@@ -18,6 +18,8 @@ log = logging.getLogger(__name__)
 
 
 def info(request):
+    """ Returns basic info about the app. """
+    log.debug( '\n\nstarting info()' )
     return HttpResponse( "Hello, world." )
 
 
@@ -32,6 +34,7 @@ def error_check( request ):
         - run, in another terminal window: `python -m smtpd -n -c DebuggingServer localhost:1026`,
         - (or substitue your own settings for localhost:1026)
     """
+    log.debug( '\n\nstarting error_check()' )
     log.debug( f'project_settings.DEBUG, ``{project_settings.DEBUG}``' )
     if project_settings.DEBUG == True:
         log.debug( 'triggering exception' )
@@ -43,6 +46,7 @@ def error_check( request ):
 
 def version( request ):
     """ Returns basic branch and commit data. """
+    log.debug( '\n\nstarting version()' ) 
     rq_now = datetime.datetime.now()
     gatherer = GatherCommitAndBranchData()
     trio.run( gatherer.manage_git_calls )
@@ -56,4 +60,6 @@ def version( request ):
 
 
 def root( request ):
+    """ Redirects to info. """
+    log.debug( '\n\nstarting root()' )
     return HttpResponseRedirect( reverse('info_url') )

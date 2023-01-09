@@ -9,38 +9,7 @@ This template creates a project (with a single app) that can easily be run by [r
 
 #### checklist
 
-(eventually pieces of this could be scripted)
 
-- assumes python 3.x
-
-- main
-    - make 'x_project_stuff' dir and cd into it
-    - git clone this repo...
-        - `git clone git@github.com:birkin/django_template_32_project.git ./x_project`
-            - remove the .git/ dir
-        - `$ git init`, then set up in GitHub Desktop or alternate-app
-        - push to GitHub
-    - make sublime/vs_code project
-    - update names
-        - change all `transcriber_webapp_project` references to name of project
-        - change all `transcriber_webapp_app` references to actual name of app
-        - include in above transcriber_webapp_app directory
-        - change all `TRNSCRBR_WEBAPP__` settings references to name of project-settings prefix
-    - make env
-
-            /path/to/python3 -m venv /path/to/project_x_stuff/env_x
-
-        - source new env, and run: `pip install --upgrade pip`
-    - with new env activated, pip update it from requirements.txt
-        - suggested for localdev: `pip install ipython` -- it'll make experimentation lots easier
-
-- log
-    - make log dir, ensuring permissions are correct
-    - touch a project_x.log file, and update 'owner/group', and update group-permissions
-        - note, if setting up on a production-server, make the owner the apache user, and the group the shared-group
-    - add log to system's logrotate
-    - add dir to sublime project
-    - Note: initial run may create an empty logfile with an incorrect owner, causing an error. If this happens, simply update the owner -- the subsequent system's logrotate will ensure the log-file's permissions remain correct.
 
 - settings
     - make settings dir and .sh file
