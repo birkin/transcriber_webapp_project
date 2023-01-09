@@ -10,36 +10,6 @@ This template creates a project (with a single app) that can easily be run by [r
 #### checklist
 
 
-
-- settings
-    - make settings dir and .sh file
-    - update `env/bin/activate.py` in two areas:
-
-        - add this to the last line of the `deactivate` function...
-
-                unset $(env | grep PREFIX__ | cut -d= -f1 | xargs)
-
-            (this will remove any application-specific env-vars when the virtual-environment is deactivated or re-sourced)
-
-        - add this to the end of the `activate` file...
-
-                export PREFIX__SETTINGS_PATH="/path/to/project_env_settings.sh"
-                source $PREFIX__SETTINGS_PATH
-
-            (this sets an env-var needed by `passenger_wsgi.py`)
-
-        - notes...
-            - substitute the app-specific env-var prefix for `PREFIX__` above
-            - be sure the exported-path env-var matches the environmental-variable accessed by the `ENV_SETTINGS_FILE` entry in `config/passenger_wsgi.py`
-
-    - add dir to sublime project
-    - add needed items along the way; eg, in django:
-        - one way to see what needs set: source the environment and run `python ./manage.py check`
-        - new secret-key ([helpful code](https://gist.github.com/birkin/0f6245dd7eeb24c0f5ad))
-        - db if needed
-        - project's django_media directory
-            - hitting the [runserver admin link](http://127.0.0.1:8000/admin/) is a good way to check the django_media directory and db
-
 - update
     - add git-pull script (w/set-permissions) & run it
     - once this works, source the env and try a `python ./manage.py check`
